@@ -1,0 +1,42 @@
+" gui options
+set toolbars=none,tabs
+
+
+""" move
+
+" up
+noremap h 4j
+
+" down
+noremap t 4k
+
+" screen up
+noremap <C-x>t <C-x>u 
+
+" screen down
+noremap <C-x>h <C-x>d
+
+
+
+""" browse
+
+" forward
+noremap S L
+
+
+
+
+
+
+
+
+
+""" tabs
+
+" next
+
+" prev
+
+" open in tab
+noremap e t 
+

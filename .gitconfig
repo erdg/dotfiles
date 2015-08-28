@@ -1,0 +1,9 @@
+[user]
+	name = Erik D Gustafson
+	email = erik.d.gustafson@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = vim
+[push]
+	default = simple

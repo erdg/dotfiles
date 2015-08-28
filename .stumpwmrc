@@ -1,0 +1,67 @@
+(in-package :stumpwm)
+
+
+(set-prefix-key (kbd "C-a"))
+
+(define-key *root-map* (kbd "c") "exec urxvtc")
+
+(define-key *root-map* (kbd "f") "exec firefox") 
+
+(define-key *root-map* (kbd "H") "gnext")
+(define-key *root-map* (kbd "L") "gprev")
+
+
+(define-key *root-map* (kbd "N") "fnext")
+(define-key *root-map* (kbd "C-n") "fother")
+(define-key *root-map* (kbd "h") "move-focus left")
+(define-key *root-map* (kbd "t") "move-focus right")
+(define-key *root-map* (kbd "d") "move-focus down")
+(define-key *root-map* (kbd "u") "move-focus up")
+
+;; turn off annoying bell
+(run-shell-command "xset b off")
+
+(set-focus-color "green")
+(set-unfocus-color "purple")
+
+
+
+
+
+;;; mode line stuffs ;;;
+
+(setf *mode-line-screen-position* :bottom)
+(setf *mode-line-frame-position* :bottom)
+(setf *mode-line-border-width* 0)
+(setf *mode-line-border-height* 0)
+(setf *mode-line-pad-x* 0)
+(setf *mode-line-pay-y 1)
+(setf *mode-line-background-color* "black")
+(setf *mode-line-foreground-color* "grey")
+(setf *mode-line-border-color* "grey30")
+
+
+(defun show-battery-charge ()
+  (let ((raw-battery (run-shell-command "acpi | cut -d, -f2" t)))
+    (substitute #\Space #\Newline raw-battery)))
+
+(defun show-battery-state ()
+  (let ((raw-battery (run-shell-command "acpi | cut -d: -f2 | cut -d, -f1" t)))
+    (substitute #\Space #\Newline raw-battery)))
+
+
+(setf *screen-mode-line-format*
+  (list
+    "| Battery: "
+    '(:eval (show-battery-charge))
+    '(:eval (show-battery-state))
+    " | %w | %g " ))
+
+
+; (if (not (head-mode-line (current-head)))
+;   (toggle-mode-line (current-screen) (current-head)))
+
+;; Windows
+(setf *window-border-style* :thin)
+(setf *normal-boder-width* 1)
+
