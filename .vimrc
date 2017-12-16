@@ -2,14 +2,13 @@ execute pathogen#infect()
 filetype on
 filetype plugin indent on
 
-
 """"""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""
 set relativenumber
 set number
-set tabstop=2
-set shiftwidth=2
+set tabstop=3
+set shiftwidth=3
 set expandtab
 set autoindent
 set smartindent
@@ -23,13 +22,8 @@ let g:mapleader = ","
 let g:sexp_enable_insert_mode_mappings = 0
 let maplocalleader = "\\"
 
-" emmet leader
-let g:user_emmet_leader_key='<C-e>' 
-
-" Fast saving
+" Fast saving, etc
 nnoremap <leader>w :w!<cr>
-
-" fast
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>wq :wq<cr>
@@ -37,14 +31,8 @@ nnoremap <leader>wq :wq<cr>
 " Fast .vimrc editing
 nnoremap <leader>rc :vsplit $MYVIMRC<cr>
 
-" .stumpwmrc
-nnoremap <leader>ew :e /home/erik/.stumpwmrc<cr>
-
 " Fast .vimrc sourcing
 nnoremap <leader>src :source $MYVIMRC<cr>
-
-" NERD TREE!!!
-nnoremap <C-n> :NERDTreeToggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
@@ -53,10 +41,7 @@ nnoremap <C-n> :NERDTreeToggle<cr>
 " enable syntax highlighting
 syntax enable
 
-colorscheme jellybeans
-
 set encoding=utf8
-
 
 """"""""""""""""""""""""""""""""""""""""
 " Editing stuffs
@@ -73,28 +58,11 @@ nnoremap <leader>; :
 " add line
 nnoremap + o<esc>k
 
-" line down
-nnoremap h j
-
-" line up
-nnoremap t k
-
-" bad
-nnoremap j <nop>
-nnoremap k <nop>
-
-" left
-nnoremap <c-h> h
-
-" right
-nnoremap <c-t> l
-
-
 " Cursor to first non-blank character
 nnoremap H ^
 
 " Cursor to end of line
-nnoremap T $
+nnoremap L $
 
 " wrap word in double quotes
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
@@ -103,17 +71,8 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 " Insert Mode Mappings
 """"""""""""""""""""""""""""""""""""""""
 
-" quick <esc>
+" fast <esc>
 inoremap jk <esc>
-
-" don't press <esc>
-inoremap <esc> <nop>
-
-" left
-inoremap <c-h> <esc>ha
-
-" right
-inoremap <c-t> <esc>la
 
 " covert word to uppercase
 inoremap <c-u> <esc>vbU<esc>ea
@@ -122,25 +81,12 @@ inoremap <c-u> <esc>vbU<esc>ea
 " Visual Mode Mappings
 """""""""""""""""""""""""""""""""""""""
 
+" fast <esc>
+vnoremap jk <esc>
+
 " Stay in visual mode after blockwise indent
 vnoremap > >gv
 vnoremap < <gv 
-
-" line down
-vnoremap h j
-
-" line up
-vnoremap t k
-
-" bad
-vnoremap j <nop>
-vnoremap k <nop>
-
-" left
-vnoremap <c-h> h
-
-" right
-vnoremap <c-t> l
 
 " Cursor to first non-blank character
 vnoremap H ^
@@ -161,21 +107,17 @@ nnoremap <leader>v :vsplit<cr>
 
 " smart way to move about windows
 
-" down
-nnoremap <leader>wh <c-w>j
-" up
-nnoremap <leader>wt <c-w>k
 " left
 nnoremap <leader>h <c-w>h
 " right
-nnoremap <leader>t <c-w>l
+nnoremap <leader>l <c-w>l
 
 " buffer delete
-nnoremap <leader>bd :bdelete!<cr>
+nnoremap <leader>k :bdelete!<cr>
 " buffer next
-nnoremap <leader>bn :bn!<cr>
+nnoremap <leader>n :bn!<cr>
 " buffer previous
-nnoremap <leader>bp :bp!<cr>
+nnoremap <leader>p :bp!<cr>
 " buffer list
 nnoremap <leader>bs :buffers<cr>
 
@@ -206,7 +148,7 @@ nnoremap <leader><space> :noh<cr>
 " autocmds
 augroup filetype_txt
    autocmd!
-   autocmd BufNewFile,BufRead *.txt setlocal tw=78
+   autocmd BufNewFile,BufRead *.txt setlocal tw=72
 augroup END
 
 """""""""""""""""""""""""""""""""""""""
@@ -218,8 +160,6 @@ autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 """""""""""""""""""""""""""""""""""""""
 " PicoLisp
 """""""""""""""""""""""""""""""""""""""
-
-
 
 
 """""""""""""""""""""""""""""""""""""""
