@@ -15,19 +15,24 @@ alias rc="vim ~/.bash_aliases"
 # easier sourcing
 alias re="source ~/.bash_aliases"
 
-# e(dit) with vim 
-alias e="vim"
-alias se="sudo vim"
+alias v="vim"
 
 # the 'ls' family
 alias ls="ls -h --color"
-alias la="ls -a"
-
+alias ll='ls -alF'
+alias la='ls -A'
 alias lx="ls -lXB"
 alias l="ls -CF"
+alias lo="ls -o"
 
 alias h="history"
 alias j="jobs"
+
+# git
+alias gs="git status"
+alias gc="git commit -m"
+alias gd="git diff"
+alias gap="git add -p"
 
 # top process(es) eating memory
 alias psmem='ps auxf | sort -nr -k 4'
@@ -42,9 +47,22 @@ alias df='df -H'
 alias du='du -ch'
 
 # be safe now
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-alias ln='ln -i'
+alias rmi='rm -i'
+alias mvi='mv -i'
+alias cpi='cp -i'
+alias lni='ln -i'
 
 alias red='redshift -O'
+
+# sonic pi prep
+#
+# execute alias below
+# then in a different terminal execute 'sonic-pi'
+# make music!
+alias sp-headphones='pasuspender -- jackd -R -d alsa'
+alias sp-interface='pasuspender -- jackd -R -d alsa -dhw:USB,0'
+
+# monitor to portrait
+alias portrait='xrandr --output HDMI-1 --auto --rotate left --left-of LVDS-1'
+# monitor to landscape
+alias landscape='xrandr --output HDMI-1 --auto --rotate normal --left-of LVDS-1'
